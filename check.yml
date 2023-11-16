@@ -4,5 +4,5 @@
   tasks:
       - name: Cd to the directory
         debug:
-            msg: echo "Hello world"
+            msg: echo {{test}}
         
