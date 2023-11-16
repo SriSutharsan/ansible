@@ -1,0 +1,15 @@
+---
+- name: Check Demo
+  hosts: localhost
+  tasks:
+      - name: Cd to the directory
+        command: cd workspace/{{repo_name}}
+      
+      - name: Execute command:
+        command: ls
+        register: output
+      
+      - name: Display
+        debug:
+          msg: {{output.results}}
+        
