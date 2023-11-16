@@ -4,5 +4,5 @@
   tasks:
       - name: Cd to the directory
         debug:
-            msg: echo "{{lookup( 'env', 'reponame') }}"
+            msg: echo "{{lookup('env','reponame')}}"
         
