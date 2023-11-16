@@ -4,7 +4,7 @@
   tasks:
       - name: Cd to the directory
         command: |
-            echo "{{lookup('env','reponame')}}" | sudo apt install ansible
+            echo "{{lookup('env','reponame')}}" | sudo install nginx
         register: output
       - name: Display
         debug:
