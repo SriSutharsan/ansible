@@ -3,6 +3,9 @@
   hosts: localhost
   tasks:
       - name: Cd to the directory
+        command: echo {{lookup('env','reponame')}}
+        register: output
+      - name: Display
         debug:
-            msg: echo {{lookup('env','reponame')}}
+          msg: {{output.result}}
         
