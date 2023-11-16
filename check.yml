@@ -7,5 +7,5 @@
         register: output
       - name: Display
         debug:
-          msg: {{output.result}}
+          msg: {{output.results}}
         
