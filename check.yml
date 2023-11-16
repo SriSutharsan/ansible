@@ -4,7 +4,7 @@
   tasks:
       - name: Cd to the directory
         command: |
-             sudo install nginx | echo "{{lookup('env','reponame')}}"
+             echo "{{lookup('env','reponame')}}"
         register: output
       - name: Display
         debug:
