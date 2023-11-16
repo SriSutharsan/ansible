@@ -3,5 +3,6 @@
   hosts: localhost
   tasks:
       - name: Cd to the directory
-        echo: "Hello world"
+        debug:
+            msg: echo "Hello world"
         
