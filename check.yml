@@ -1,6 +1,8 @@
 ---
 - name: Check Demo
   hosts: localhost
+  vars:
+    test: #{test}
   tasks:
       - name: Cd to the directory
         debug:
