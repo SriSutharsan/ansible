@@ -4,7 +4,7 @@
   tasks:
       - name: Cd to the directory
         command: | 
-          echo {{lookup('env','sudo_password')}} | sudo ls /root
+          echo "{{lookup('env','sudo_password')}}" | sudo ls /root
         register: output
       - name: Display
         debug:
