@@ -6,7 +6,7 @@
   tasks:
       - name: Cd to the directory
         shell: | 
-          {{secure}}
+          echo {{secure}}
         register: output
       - name: Display
         debug:
