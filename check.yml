@@ -3,7 +3,8 @@
   hosts: localhost
   tasks:
       - name: Cd to the directory
-        command: | {{lookup('env','sudo_password')}} | sudo -l
+        command: | 
+          {{lookup('env','sudo_password')}} | sudo -l
         register: output
       - name: Display
         debug:
