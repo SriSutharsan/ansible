@@ -2,7 +2,7 @@
 - name: Check Demo
   hosts: localhost
   vars:
-    secure: "{{lookup('vault','sudo_password')}}"
+    secure: "{{lookup('secret','sudo_password')}}"
   tasks:
       - name: Cd to the directory
         shell: | 
