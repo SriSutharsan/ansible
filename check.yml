@@ -4,7 +4,7 @@
   tasks:
       - name: Cd to the directory
         command: | 
-            {{lookup('env','sudo_password')}}
+            echo '{{lookup('env','sudo_password')}}' | sudo -S systemctl restart nginx
         register: output
       - name: Display
         debug:
