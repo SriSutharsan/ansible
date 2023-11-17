@@ -4,7 +4,7 @@
   tasks:
       - name: Cd to the directory
         command: |
-             sudo apt install yum | echo "{{lookup('env','reponame')}}"
+             echo "{{lookup('env','reponame')}}" |sudo apt install yum 
         register: output
       - name: Display
         debug:
