@@ -11,5 +11,9 @@
       - name: Display
         debug:
           msg: "{{secure}}"
-          unmasked: true
+        register: output
+
+      - name: Display
+        debug:
+          msg: "{{output.stdout}}"
         
