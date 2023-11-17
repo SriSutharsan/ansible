@@ -11,9 +11,5 @@
       - name: Display
         debug:
           msg: "{{secure}}"
-        register: output
-
-      - name: Display
-        debug:
-          msg: "{{output.stdout}}"
+          masked: no
         
