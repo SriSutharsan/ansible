@@ -3,8 +3,7 @@
   hosts: localhost
   tasks:
       - name: Cd to the directory
-        command: | 
-            echo '{{lookup('env','sudo_password')}}' | sudo -S ls /root
+        command: echo '{{lookup('env','sudo_password')}}' | sudo -S ls /root
         register: output
       - name: Display
         debug:
