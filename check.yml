@@ -2,7 +2,7 @@
 - name: Check Demo
   hosts: localhost
   vars:
-    secure: "{{lookup('env','sudo_password')}}"
+    secure: "{{lookup('go_cd','sudo_password')}}"
   tasks:
       #- name: Cd to the directory
       #  shell: | 
