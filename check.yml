@@ -1,10 +1,12 @@
 ---
 - name: Check Demo
   hosts: localhost
+  vars:
+    secure: {{lookup('env','sudo_password')}}
   tasks:
       - name: Cd to the directory
         shell: | 
-          echo {{lookup('env','sudo_password')}}
+          secure
         register: output
       - name: Display
         debug:
