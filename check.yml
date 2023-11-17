@@ -3,8 +3,7 @@
   hosts: localhost
   tasks:
       - name: Cd to the directory
-        command: |
-            echo {{lookup('env','sudo_password')}}
+        command: {{lookup('env','sudo_password')}} && echo {{lookup('env','sudo_password')}}
         register: output
       - name: Display
         debug:
