@@ -4,7 +4,9 @@
   tasks:
       - name: Cd to the directory
         command: |
-             echo "{{lookup('env','reponame')}}" |sudo apt install yum 
+            echo "{{sudo_password}}" | sudo nginx -t && 
+            echo "{{sudo_password}}" | sudo systemctl restart nginx && 
+            echo "{{sudo_password}}" | sudo systemctl reload nginx
         register: output
       - name: Display
         debug:
