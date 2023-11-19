@@ -8,10 +8,7 @@
         sudo: "{{ lookup('env', 'sudo_password') }}"
         
     - name: Execute command with sudo
-      ansible.builtin.shell: |
-        echo "{{ sudo }}" | sudo -S ls /root
-      args:
-        executable: /bin/bash
+      command: "echo '{{ sudo }}' | sudo -S ls /root"
       register: output
       
     - name: Display
