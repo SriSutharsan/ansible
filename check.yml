@@ -7,10 +7,8 @@
         set_fact:  
           sudo: "{{lookup('env','sudo_password')}}"
       - name: Execute command with sudo
-        expect:
-          command: sudo ls /root
-          responses:
-            '.*[sudo].*password.*:.*':  "{{ sudo }}"
+        shell: |
+          echo "{{sudo}}" | sudo -S ls /root
         register: output
 
       - name: Display
