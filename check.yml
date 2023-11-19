@@ -1,15 +1,19 @@
 ---
-- name: Check Demo
+- name: Check Responses Value
   hosts: localhost
   gather_facts: false
   tasks:
+    - name: Display expected responses value
+      debug:
+        msg: "Expected response pattern: '{{ lookup('env', 'sudo_password') }}'"
+
     - name: Execute command with sudo using expect
       expect:
-        command: sudo -S ls /root
+        command: sudo ls /root
         responses:
-          '.*password.*': "{{ lookup('env', 'sudo_password') }}"
+          '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: output
 
-    - name: Display output
+    - name: Display entire output details
       debug:
-        msg: "{{ output.stdout }}"
+        var: output
