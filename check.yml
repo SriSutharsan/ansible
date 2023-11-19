@@ -1,15 +1,12 @@
 ---
 - name: Check Demo
   hosts: localhost
-  vars:
-    secure: "{{lookup('env','sudo_password')}}"
   tasks:
-      #- name: Cd to the directory
-      #  shell: | 
-       #   echo {{secure}}
+      - name: Cd to the directory
+        set_fact:  
+          sudo: "{{lookup('env','sudo_password')}}"
         #register: output
       - name: Display
         debug:
-          msg: "{{secure}}"
-          masked: no
+          var: sudo
         
