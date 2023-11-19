@@ -5,7 +5,7 @@
   tasks:
     - name: Execute command with sudo using expect
       expect:
-        command: sudo ls /root
+        command: sudo -S ls /root
         responses:
           '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: output
