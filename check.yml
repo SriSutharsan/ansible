@@ -1,12 +1,12 @@
 ---
 - name: Check Demo
   hosts: localhost
+  gather_facts: false
   tasks:
       - name: Cd to the directory
         set_fact:  
           sudo: "{{lookup('env','sudo_password')}}"
         #register: output
       - name: Display
-        debug:
-          var: sudo
+        command: echo "{{sudo}}"
         
