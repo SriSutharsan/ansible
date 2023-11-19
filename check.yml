@@ -5,8 +5,7 @@
   tasks:
 
     - name: Execute command with sudo using expect
-      expect:
-        command: whoami
+      command: whoami
       register: output
 
     - name: Display entire output details
