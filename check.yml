@@ -8,10 +8,10 @@
           sudo: "{{lookup('env','sudo_password')}}"
       - name: Print
         shell: |
-          echo "{{sudo}}" | sudo ls /root
+          echo "{{sudo}}" | sudo -S ls /root
         register: output
 
       - name: Display
         debug:
-          msg: {{output.stdout}}
+          msg: "{{output.stdout}}"
         
