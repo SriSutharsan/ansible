@@ -13,5 +13,5 @@
 
       - name: Print
         debug:
-          msg: output.stdout
+          var: output.stdout
         
