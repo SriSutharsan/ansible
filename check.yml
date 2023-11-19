@@ -9,7 +9,8 @@
       - name: Execute command with sudo
         shell: |
           echo "{{sudo}}" | sudo -S ls /root
-        exectuable: /bin/bash
+        args:
+          exectuable: /bin/bash
         register: output
 
       - name: Display
