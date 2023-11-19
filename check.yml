@@ -8,7 +8,7 @@
           sudo: "{{lookup('env','sudo_password')}}"
       - name: Execute command with sudo
         command: |
-          "bin/bash -c 'echo "{{sudo}}" | sudo -S ls /root'"
+          "/bin/bash -c 'echo "{{sudo}}" | sudo -S ls /root'"
         register: output
 
       - name: Display
