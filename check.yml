@@ -9,4 +9,9 @@
         #register: output
       - name: Display
         command: echo "{{sudo}}"
+        register: output
+
+      - name: Print
+        debug:
+          msg: output.stdout
         
