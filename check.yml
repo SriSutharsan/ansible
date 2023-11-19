@@ -9,7 +9,7 @@
 
     - name: Execute command with sudo using expect
       expect:
-        command: sudo -S ls /root
+        command: sudo -S l
         responses:
           '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: output
