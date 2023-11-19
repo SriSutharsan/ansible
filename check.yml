@@ -7,7 +7,7 @@
         set_fact:  
           sudo: "{{lookup('env','sudo_password')}}"
       - name: Execute command with sudo
-        shell: |
+        ansible.builtin.shell: |
           echo "{{sudo}}" | sudo -S ls /root
         args:
           exectuable: /bin/bash
