@@ -9,12 +9,10 @@
         
     - name: Execute command with sudo
       ansible.builtin.shell: |
-        sudo -S ls /root
+        echo "{{ sudo }}" | sudo -S ls /root
       args:
         executable: /bin/bash
       register: output
-      environment:
-        SUDO: "{{ sudo }}"
       
     - name: Display
       debug:
