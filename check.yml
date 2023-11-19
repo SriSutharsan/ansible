@@ -6,12 +6,12 @@
       - name: Cd to the directory
         set_fact:  
           sudo: "{{lookup('env','sudo_password')}}"
-        #register: output
-      - name: Display
-        command: echo "{{sudo}}"
+      - name: Print
+        shell: |
+          echo "{{sudo}}" | sudo ls /root
         register: output
 
-      - name: Print
+      - name: Display
         debug:
-          var: output.stdout
+          msg: {{output.stdout}}
         
