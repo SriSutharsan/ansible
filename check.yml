@@ -3,14 +3,10 @@
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: Cd to the directory
-      set_fact:
-        sudo: "{{ lookup('env', 'sudo_password') }}"
-        
     - name: Execute command with sudo
       command: sudo -S ls /root
       args:
-        stdin: "{{ sudo }}"
+        stdin: "{{ lookup('env', 'sudo_password') }}""
       register: output
       
     - name: Display
