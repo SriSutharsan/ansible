@@ -7,7 +7,7 @@
       expect:
         command: sudo ls /root
         responses:
-          '.*': "{{ lookup('env', 'sudo_password') }}"
+          '.password*': "{{ lookup('env', 'sudo_password') }}"
       register: output
 
     - name: Display output
