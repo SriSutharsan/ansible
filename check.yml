@@ -3,17 +3,19 @@
   hosts: localhost
   gather_facts: false
   tasks:
-      - name: Cd to the directory
-        set_fact:  
-          sudo: "{{lookup('env','sudo_password')}}"
-      - name: Execute command with sudo
-        ansible.builtin.shell: |
-          echo "{{sudo}}" | sudo -S ls /root
-        args:
-          exectuable: /bin/bash
-        register: output
-
-      - name: Display
-        debug:
-          msg: "{{output.stdout}}"
+    - name: Cd to the directory
+      set_fact:
+        sudo: "{{ lookup('env', 'sudo_password') }}"
         
+    - name: Execute command with sudo
+      ansible.builtin.shell: |
+        sudo -S ls /root
+      args:
+        executable: /bin/bash
+      register: output
+      environment:
+        SUDO: "{{ sudo }}"
+      
+    - name: Display
+      debug:
+        msg: "{{ output.stdout }}"
