@@ -6,9 +6,11 @@
       - name: Cd to the directory
         set_fact:  
           sudo: "{{lookup('env','sudo_password')}}"
-      - name: Print
-        shell: |
-          echo "{{sudo}}" | sudo -S ls /root
+      - name: Execute command with sudo
+        expect:
+          command: sudo ls /root
+          responses:
+            "{{ sudo }}"
         register: output
 
       - name: Display
