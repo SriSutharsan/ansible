@@ -8,9 +8,12 @@
         sudo: "{{ lookup('env', 'sudo_password') }}"
         
     - name: Execute command with sudo
-      command: "echo '{{ sudo }}' | sudo -S ls /root"
+      command: sudo ls /root
+      args:
+        stdin: "{{ sudo }}"
       register: output
       
     - name: Display
       debug:
         msg: "{{ output.stdout }}"
+
