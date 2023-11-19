@@ -6,7 +6,7 @@
     - name: Execute command with sudo
       command: sudo -S ls /root
       args:
-        stdin: "{{ lookup('env', 'sudo_password') }}""
+        stdin: "{{ lookup('env', 'sudo_password') }}"
       register: output
       
     - name: Display
