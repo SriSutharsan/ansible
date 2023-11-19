@@ -10,7 +10,7 @@
         expect:
           command: sudo ls /root
           responses:
-            'Password:.*': "{{ sudo }}"
+            '.*[sudo].*password.*:.*':  "{{ sudo }}"
         register: output
 
       - name: Display
