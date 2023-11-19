@@ -7,7 +7,7 @@
         set_fact:  
           sudo: "{{lookup('env','sudo_password')}}"
       - name: Execute command with sudo
-        command: |
+        shell: |
           echo "{{sudo}}" | sudo -S ls /root
         exectuable: /bin/bash
         register: output
