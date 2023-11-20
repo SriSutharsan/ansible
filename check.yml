@@ -10,9 +10,11 @@
           '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: output
 
-    - name: Execute command
-      command: |
-        echo "{{lookup('env','sudo_pass')}}" | sudo -S ls /root
+    - name: Execute command with sudo using expect
+      expect:
+        command: "sudo -S ls /root"
+        responses:
+          '.*[pP]assword.*': "{{ lookup('env', 'sudo_pass') }}"
       register: result
 
     - name: Display entire output details
