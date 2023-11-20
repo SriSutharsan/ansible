@@ -16,6 +16,14 @@
           '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: result
 
+    - name: Deploy the Web Application with sudo using expect
+      expect:
+            command: "sudo nginx -t && sudo systemctl restart nginx && sudo systemctl reload nginx"
+            responses:
+                  '.*[pP]assword.*': "{{ sudo_password }}"
+      register: sample
+
+        
     - name: Display entire output details
       debug:
         var: output
@@ -23,3 +31,7 @@
     - name: Display entire output details
       debug:
         var: result
+
+    - name: Display entire output details
+      debug:
+        var: sample
