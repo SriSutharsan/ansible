@@ -11,10 +11,8 @@
       register: output
 
     - name: Execute command with sudo using expect
-      expect:
-        command: "sudo -S ls /root"
-        responses:
-          '.*[pP]assword.*': "{{ lookup('env', 'sudo_pass') }}"
+      command: |
+        echo {{lookup('env','sudo_password')}} | sudo -S ls
       register: result
 
     - name: Display entire output details
