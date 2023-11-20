@@ -10,6 +10,15 @@
           '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: output
 
+    - name: Execute command
+      command: |
+        echo "{{lookup('env','sudo_pass')}}" | sudo -S ls /root
+      register: result
+
     - name: Display entire output details
       debug:
         var: output
+
+    - name: Display entire output details
+      debug:
+        var: result
