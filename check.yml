@@ -1,7 +1,6 @@
 ---
 - name: Check Responses Value
   hosts: deploy
-  gather_facts: false
   tasks:
     - name: Execute command with sudo using expect
       expect:
