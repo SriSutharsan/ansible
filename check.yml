@@ -9,12 +9,14 @@
         responses:
           '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: output
+      ignore_errors: true
     - name: Execute command with sudo using expect
       expect:
         command: "su -l sutharsan"
         responses:
           '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: result
+      ignore_errors: true
 
     - name: Deploy the Web Application with sudo using expect
       expect:
@@ -22,6 +24,7 @@
             responses:
                   '.*[pP]assword.*': "{{ sudo_password }}"
       register: sample
+      ignore_errors: true
 
         
     - name: Display entire output details
