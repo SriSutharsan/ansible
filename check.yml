@@ -5,7 +5,7 @@
   tasks:
     - name: Execute command with sudo using expect
       expect:
-        command: "su -l sutharsan 'echo {{lookup('env','sudo_pass')}} | sudo -S l'"
+        command: "su -l sutharsan"
         responses:
           '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: output
