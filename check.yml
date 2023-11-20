@@ -11,8 +11,7 @@
       register: output
 
     - name: Execute command with sudo using expect
-      command: |
-        echo {{lookup('env','sudo_password')}} | sudo -S ls
+      command: echo {{lookup('env','sudo_password')}} | sudo -S ls
       register: result
 
     - name: Display entire output details
