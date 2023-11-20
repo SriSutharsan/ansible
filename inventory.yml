@@ -9,7 +9,7 @@
 #   - You can enter hostnames or ip addresses
 #   - A hostname/ip can be a member of multiple groups
 [deploy]
-ansible_hosts="{{lookup('env','ip_hosts')}}"
+web ansible_host="{{lookup('env','ip_hosts')}}"
 #[deploy]
 #server1     ansible_host=142.93.222.20 ansible_connection=ssh ansible_ssh_user=developer 
 #server2     ansible_host=192.168.0.2 ansible_connection=ssh
