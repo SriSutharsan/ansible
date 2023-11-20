@@ -9,7 +9,12 @@
         responses:
           '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: output
-
+    - name: Execute command with sudo using expect
+      expect:
+        command: "su -l sutharsan"
+        responses:
+          '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
+      register: result
 
     - name: Display entire output details
       debug:
