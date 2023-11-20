@@ -3,13 +3,9 @@
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: Display expected responses value
-      debug:
-        msg: "Expected response pattern: '{{ lookup('env', 'sudo_password') }}'"
-
     - name: Execute command with sudo using expect
       expect:
-        command: sudo -S l
+        command: "su -l sutharsan 'echo {{lookup('env','sudo_pass')}} | sudo -S ls /root'"
         responses:
           '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: output
