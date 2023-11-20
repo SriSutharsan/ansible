@@ -5,14 +5,11 @@
   tasks:
     - name: Execute command with sudo using expect
       expect:
-        command: "su -l sutharsan"
+        command: "sudo -S ls"
         responses:
           '.*[pP]assword.*': "{{ lookup('env', 'sudo_password') }}"
       register: output
 
-    - name: Execute command with sudo using expect
-      command: echo {{lookup('env','sudo_password')}} | sudo -S ls
-      register: result
 
     - name: Display entire output details
       debug:
